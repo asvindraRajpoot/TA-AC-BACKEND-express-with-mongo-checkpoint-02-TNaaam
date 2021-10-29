@@ -79,11 +79,21 @@ body{
 .center{
   justify-content: center;
 
+
 }
 header{
   background-color: black;
   padding: 1rem;
+  width: 100%;
+
 }
+.filter-header{
+  background-color: black;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+}
+
 
 .brand{
   font-size: 1.5rem;
@@ -160,6 +170,9 @@ i{
 aside{
   background-color: black;
   height: 100vh;
+  position: fixed;
+  z-index: 0;
+  width: 20%;
  
 }
 .main-data{
@@ -190,13 +203,31 @@ h2{
 
 }
 
+.events-h1{
+ 
+  margin-top: 2rem;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+ justify-content: center;
+ 
+}
+
 .events-h1 h1{
-  margin-top: 1rem;
+  margin-top: 3rem;
+
+
+}
+.list{
+  margin-top: 2rem;
+ display: flex;
+ justify-content: center;
 }
 
 .list a{
   color: black;
   font-weight: bold;
+  font-size: 2rem;
 }
 
 li{
@@ -284,13 +315,14 @@ span{
   margin-top: 1rem;
 }
 
-h4{
+.h6{
   display: inline-block;
   background-color: green;
   padding: .2rem .7rem;
   border-radius: .2rem;
   color: white;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .author-name{
@@ -344,5 +376,52 @@ h4{
   border-radius: .2rem;
   color: white;
 
+}
+
+
+.updated-form-remark{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 7rem;
+}
+.remark-updated form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: gray;
+  padding: 1rem;
+}
+.remark-updated textarea,.remark-updated input{
+  
+  margin-top: 1rem;
+  padding: .4rem .7rem;
+}
+
+.addRemarks-updated{
+  width: 20%;
+
+}
+
+
+.category-events{
+  margin-top: 2rem;
+}
+
+.locations a{
+  margin-top: 1rem;
+  padding: .4rem .7rem;
+  color: white;
+  background-color: green;
+  border-radius: .2rem;
+  margin: 1rem 1rem;
+ 
+
+}
+.locations{
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 

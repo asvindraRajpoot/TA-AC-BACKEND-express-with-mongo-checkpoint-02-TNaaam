@@ -12,56 +12,37 @@
       src="https://kit.fontawesome.com/814a0fdb0b.js"
       crossorigin="anonymous"
     ></script>
-    <title>Event List</title>
+    <title>Home</title>
   </head>
   <body>
-    <header class="filter-header">
+    <header>
       <div class="container">
         <nav class="flex space-between">
           <div>
             <a href="/" class="brand">EventMGM</a>
           </div>
           <div class="right-nav">
-            <a href="/events/new" class="events subscribe">Create an event</a>
+            <a href="/events" class="events">Events</a>
+            <a href="/events/subscribe" class="details subscribe">Subscribe us</a>
           </div>
         </nav>
       </div>
     </header>
-    <main class="">
-      <div class="main-data">
-        <aside>
-          <h2>Filters</h2>
-          <div class="filter">
-            <a href="">Programming</a>
-            <a href="">Sports</a>
-            <a href="">Trekking</a>
-
-            <a href="">Latest</a>
-            <a href="">Oldest</a>
-            <a href="/location">Location</a>
-          </div>
-        </aside>
-        <div class="container events-h1">
-          <h1>Events List</h1>
-          <div class="list">
-            <div>
-             
-             <% events.forEach(e=>{%>
-                <a href="/events/<%=e.id%>">
-                  <li>
-                   <%=e.title%>
-                  </li>
-                </a>
-              <%})%>
-
-            </div>
-          </div>
-        </div>
+    <main class="container">
+      <h1>Welcome to  Events filtered based on </h1>
+      <div class="category-events">
+        <%events.eventId.forEach(e=>{%>
+          <li>
+          
+               <%=e.title%>
+          
+          </li>
+         <%})%>
       </div>
     </main>
-    <footer class="events-nav filter-footer">
+    <footer>
       <div class="container">
-        <nav class="footer-nav events-nav">
+        <nav class="footer-nav">
           <small>Events&copy;All Rights reserved pvt. ltd.</small>
         </nav>
         <div class="flex center">

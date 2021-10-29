@@ -10,6 +10,9 @@ mongoose.connect('mongodb://localhost/EventStore',(err)=>{
 
 var indexRouter = require('./routes/index');
 var eventsRouter = require('./routes/events');
+var remarksRouter=require('./routes/remarks');
+var categoryRouter=require('./routes/category');
+var locationRouter=require('./routes/location');
 
 var app = express();
 
@@ -27,7 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/events', eventsRouter);
-
+app.use('/remarks',remarksRouter);
+app.use('/category',categoryRouter);
+app.use('/location',locationRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
