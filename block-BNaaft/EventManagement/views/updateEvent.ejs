@@ -30,14 +30,16 @@
     <main class="container">
       <h1 class="create-event">Please Fill the Updated details below</h1>
    <div class="event-form">
-       <form action="">
-           <input type="text" name="title" id="" placeholder="Enter the event title">
-          <textarea name="summary" id="" cols="30" rows="3" placeholder="Enter the details of the event"></textarea>
-           <input type="text" name="host" id="" placeholder="Enter the host name">
-           <input type="date" name="start_date" id="" placeholder="Enter the start date">
-           <input type="date" name="end_date" id="" placeholder="Enter the end date">
-           <input type="text" name="category" id="" placeholder="Enter the category">
-           <input type="text" name="location" id="" placeholder="Enter the location">
+       <form action="/events/<%=e.id%>" method="POST">
+           <input type="text" name="title" id="" placeholder="Enter the event title" value="<%=e.title%>">
+          <textarea name="summary" id="" cols="30" rows="3" placeholder="Enter the details of the event">
+            <%=e.summary%>
+          </textarea>
+           <input type="text" name="host" id="" placeholder="Enter the host name" value="<%=e.host%>">
+           <input type="date" name="start_date" id="" placeholder="Enter the start date" value="<%=e.start_date%>">
+           <input type="date" name="end_date" id="" placeholder="Enter the end date"value="<%=e.end_date%>" >
+           <input type="text" name="category" id="" placeholder="Enter the category" value="<%=e.category%>">
+           <input type="text" name="location" id="" placeholder="Enter the location" value="<%=e.location%>">
            <input type="submit" name="" id="" value="Update Event">
        </form>
    </div>

@@ -23,7 +23,7 @@
           </div>
           <div class="right-nav">
             <a href="/events" class="events">Events</a>
-            <a href="/events/id/" class="details">EventDetails</a>
+            <a href="/events/<%=e.id%>/" class="details">EventDetails</a>
           </div>
         </nav>
       </div>
@@ -32,32 +32,38 @@
       <h1 class="eventDetail">Details about the event</h1>
       <div>
         <div>
-          <h4>Tags</h4>
+          <h4>
+            <%e.category.forEach((ca,i)=>{%>
+              <a href="/category/<%=e.categoryId[i]%>" class="h6">
+                <%=ca%>
+              </a>
+            <%})%>
+          </h4>
           <h3>
-            Title <span>hosted by</span>
-            <a href="" class="location">at Location</a>
+            <%=e.title%> <span>hosted by <%=e.host%></span>
+            <a href="/location/<%=e.locationId%>" class="location"> at <%=e.location%></a>
           </h3>
-          <p>Description</p>
+          <p><%=e.summary%></p>
           <div class="allBtn">
             <div class="update">
-              <a href="" class="edit">edit</a>
-              <a href="" class="delete">delete</a>
+              <a href="/events/<%=e.id%>/edit" class="edit">edit</a>
+              <a href="/events/<%=e.id%>/delete" class="delete">delete</a>
             </div>
             <div class="follower">
               <div>
-                <a href="" class="likes">Likes</a>
-                <span>0</span>
+                <a href="/events/<%=e.id%>/likes" class="likes">Likes</a>
+                <span><%=e.likes%></span>
               </div>
               <div class="dislikes-sec">
-                <a href="" class="dislikes">DisLikes</a>
-                <span>0</span>
+                <a href="/events/<%=e.id%>/dislikes" class="dislikes">DisLikes</a>
+                <span><%=e.dislikes%></span>
               </div>
             </div>
           </div>
           <div class="remarks">
-            <form action="">
+            <form action="/events/<%=e.id%>/remarks" method="POST">
               <textarea
-                name="remarks"
+                name="title"
                 id=""
                 cols="30"
                 rows="2"
@@ -78,6 +84,31 @@
                 class="addRemarks"
               />
             </form>
+          </div>
+          <div class="comments">
+            <%e.remarks.forEach(re=>{%>
+              <div>
+                <p><%=re.title%></p>
+                <div class="allBtn">
+                  <div class="update">
+                    <a href="/remarks/<%=re.id%>/edit" class="edit">edit</a>
+                    <a href="/remarks/<%=re.id%>/delete" class="delete">delete</a>
+                  </div>
+                  <div class="follower">
+                    <div>
+                      <a href="/remarks/<%=re.id%>/likes" class="likes">Likes</a>
+                      <span><%=re.likes%></span>
+                    </div>
+                    <div class="dislikes-sec">
+                      <a href="/remarks/<%=re.id%>/dislikes" class="dislikes">DisLikes</a>
+                      <span><%=re.dislikes%></span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            <%})%>
+
           </div>
         </div>
       </div>
