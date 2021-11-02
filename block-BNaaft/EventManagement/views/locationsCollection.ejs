@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/stylesheets/style.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/814a0fdb0b.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Home</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="flex space-between">
+          <div>
+            <a href="/" class="brand">EventMGM</a>
+          </div>
+          <div class="right-nav">
+            <a href="/events" class="events">Events</a>
+            <a href="/events/subscribe" class="details subscribe">Subscribe us</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <h1>Welcome to Location specific Events</h1>  
+      <div class="locations">
+        <%locations.forEach(loc=>{%>
+              <a href="/location/<%=loc.id%>"><%=loc.location%></a>
+          <%})%>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <nav class="footer-nav">
+          <small>Events&copy;All Rights reserved pvt. ltd.</small>
+        </nav>
+        <div class="flex center">
+          <a href=""><i class="fab fa-facebook-f"></i></a>
+          <a href=""><i class="fab fa-twitter"></i></a>
+          <a href=""><i class="fab fa-linkedin-in"></i></a>
+          <a href=""><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

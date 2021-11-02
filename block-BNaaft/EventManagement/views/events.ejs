@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script
+      src="https://kit.fontawesome.com/814a0fdb0b.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Event List</title>
+  </head>
+  <body>
+    <header class="filter-header">
+      <div class="container">
+        <nav class="flex space-between">
+          <div>
+            <a href="/" class="brand">EventMGM</a>
+          </div>
+          <div class="right-nav">
+            <a href="/events/new" class="events subscribe">Create an event</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="">
+      <div class="main-data">
+        <aside>
+          <a href="/" class="home">Home</a>
+          <div class="filter">
+            <a href="/events">All</a>
+            <div class="filter-cat">
+              <a href="">Filter by Category</a>
+              <div class="flex colom">
+                <a href="/category/adventure" class="white">Adventure</a>
+                <a href="/category/trekking" class="white">Trekking</a>
+                <a href="/category/sports" class="white">Sports</a>
+              </div>
+            </div>
+            <div class="filter-loc">
+              <a href="">Filter by Locations</a>
+              <div>
+                <%events.forEach(e=>{%>
+                <a href="/location/<%=e.location%>" class="white"
+                  ><%=e.location%></a
+                >
+                <%})%>
+              </div>
+            </div>
+            <div class="filter-time">
+              <a href="">Filter by Time</a>
+              <div>
+                <div class="flex colom">
+                  <a href="/time/latest" class="late">Latest</a>
+                  <a href="/time/oldest" class="old">Oldest</a>
+                </div>
+
+                <div class="filter-form">
+                  <form action="/time" method="POST">
+                    <div class="top">
+                      <span>Start Date</span>
+                      <input
+                        type="date"
+                        name="start_date"
+                        id=""
+                        placeholder="put the start date"
+                      />
+                    </div>
+                    <div class="top">
+                      <span>End Date</span>
+                      <input
+                        type="date"
+                        name="end_date"
+                        id=""
+                        placeholder="put the end date"
+                      />
+                    </div>
+                    <input
+                      type="submit"
+                      name=""
+                      id=""
+                      value="Search"
+                      class="search"
+                    />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+        <div class="container events-h1">
+          <h1>Events List</h1>
+          <div class="list">
+            <div>
+              <% events.forEach(e=>{%>
+              <a href="/events/<%=e.id%>">
+                <li><%=e.title%></li>
+              </a>
+              <%})%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="events-nav filter-footer">
+      <div class="container">
+        <nav class="footer-nav events-nav">
+          <small>Events&copy;All Rights reserved pvt. ltd.</small>
+        </nav>
+        <div class="flex center">
+          <a href=""><i class="fab fa-facebook-f"></i></a>
+          <a href=""><i class="fab fa-twitter"></i></a>
+          <a href=""><i class="fab fa-linkedin-in"></i></a>
+          <a href=""><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
