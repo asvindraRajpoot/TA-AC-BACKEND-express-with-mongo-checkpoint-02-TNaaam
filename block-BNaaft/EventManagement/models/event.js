@@ -12,9 +12,8 @@ var eventSchema=new Schema({
     likes:{type:Number,default:0},
     dislikes:{type:Number,default:0},
     remarks:[{type:Schema.Types.ObjectId,ref:'Remark'}],
-    categoryId:[{type:Schema.Types.ObjectId,ref:'Category'}],
-    locationId:{type:Schema.Types.ObjectId,ref:'Location'},
-
+   
+   
 },{timestamps:true});
 
 

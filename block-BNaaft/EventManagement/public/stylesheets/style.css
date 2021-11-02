@@ -94,6 +94,10 @@ header{
   width: 100%;
 }
 
+.colom{
+  flex-direction: column;
+}
+
 
 .brand{
   font-size: 1.5rem;
@@ -185,6 +189,7 @@ aside{
   flex-direction: column;
   padding-left: 8rem;
   padding-right: 2rem;
+  margin-top: 3rem;
 
 
 }
@@ -419,9 +424,49 @@ span{
 
 }
 .locations{
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
+
+.filter-cat,.filter-loc,.filter-time{
+  margin-top: 1rem;
+}
+
+.filter-form{
+  margin-top: 1rem;
+}
+
+.late,.old{
+  margin-left: 1rem;
+}
+
+span{
+  color: white;
+}
+.top{
+  margin-top: .5rem;
+}
+
+.search{
+  margin-top: 1rem;
+  padding: .3rem .7rem;
+}
+
+.white{
+  color: white;
+}
+.home{
+  margin-left: 10rem;
+  margin-top: 1rem;
+  display: inline-block;
+}
+main{
+  height: 100vh;
+}
+
+.lik{
+  color: black;
+}

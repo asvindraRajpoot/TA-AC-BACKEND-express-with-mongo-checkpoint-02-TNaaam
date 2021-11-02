@@ -30,15 +30,57 @@
     <main class="">
       <div class="main-data">
         <aside>
-          <h2>Filters</h2>
+          <a href="/" class="home">Home</a>
           <div class="filter">
-            <a href="">Programming</a>
-            <a href="">Sports</a>
-            <a href="">Trekking</a>
+            <a href="/events" >All</a>
+            <div class="filter-cat">
+             
+              <a href="">Filter by Category</a>
+              <div class="flex colom">
+               
+                  <a href="/category/adventure" class="white">Adventure</a>
+                  <a href="/category/trekking" class="white">Trekking</a>
+                  <a href="/category/sports" class="white">Sports</a>
+               
+              </div>
+            </div>
+            <div class="filter-loc">
+              <a href="">Filter by Locations</a>
+              <div>
+                <%events.forEach(e=>{%>
+                  <a href="/location/<%=e.location%>" class="white"><%=e.location%></a>
+                <%})%>
 
-            <a href="">Latest</a>
-            <a href="">Oldest</a>
-            <a href="/location">Location</a>
+
+              </div>
+            </div>
+            <div class="filter-time">
+              <a href="">Filter by Time</a>
+              <div >
+                <div class="flex colom">
+                  <a href="/time/latest" class="late">Latest</a>
+                  <a href="/time/oldest" class="old">Oldest</a>
+                </div>
+                
+                <div class="filter-form">
+                  <form action="/time" method="POST">
+                    <div class="top ">
+                      <span>Start Date</span>
+                      <input type="date" name="start_date" id="" placeholder="put the start date">
+                    </div>
+                   <div class=" top">
+                     <span>End Date</span>
+                     <input type="date" name="end_date" id="" placeholder="put the end date">
+                   </div>
+                   <input type="submit" name="" id="" value="Search" class="search">
+                   
+                  </form>
+                </div>
+
+              </div>
+            </div>
+            
+        
           </div>
         </aside>
         <div class="container events-h1">

@@ -13,7 +13,7 @@ var eventsRouter = require('./routes/events');
 var remarksRouter=require('./routes/remarks');
 var categoryRouter=require('./routes/category');
 var locationRouter=require('./routes/location');
-
+var timeRouter=require('./routes/time');
 var app = express();
 
 
@@ -33,6 +33,7 @@ app.use('/events', eventsRouter);
 app.use('/remarks',remarksRouter);
 app.use('/category',categoryRouter);
 app.use('/location',locationRouter);
+app.use('/time',timeRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

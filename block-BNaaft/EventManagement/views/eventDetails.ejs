@@ -33,11 +33,11 @@
       <div>
         <div>
           <h4>
-            <%e.category.forEach((ca,i)=>{%>
-              <a href="/category/<%=e.categoryId[i]%>" class="h6">
-                <%=ca%>
+            
+              <a href="/category/<%=e.category%>" class="h6">
+                <%=e.category%>
               </a>
-            <%})%>
+          
           </h4>
           <h3>
             <%=e.title%> <span>hosted by <%=e.host%></span>
@@ -52,11 +52,11 @@
             <div class="follower">
               <div>
                 <a href="/events/<%=e.id%>/likes" class="likes">Likes</a>
-                <span><%=e.likes%></span>
+                <span class="lik"><%=e.likes%></span>
               </div>
               <div class="dislikes-sec">
                 <a href="/events/<%=e.id%>/dislikes" class="dislikes">DisLikes</a>
-                <span><%=e.dislikes%></span>
+                <span class="lik"><%=e.dislikes%></span>
               </div>
             </div>
           </div>

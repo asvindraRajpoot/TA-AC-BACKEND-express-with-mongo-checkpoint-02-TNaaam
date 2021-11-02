@@ -72,13 +72,16 @@ router.get('/:id/edit', (req, res) => {
 //handle post request of updated remarks
 router.post('/:id', (req, res) => {
     let id = req.params.id;
-    Remark.findByIdAndUpdate(id, req.body, (err, e) => {
-        if (err) return next(err);
-      //  console.log(id);
-       // console.log(e);
-        res.redirect('/events/' + e.eventId);
-
-    })
+    if(req.body.title==="" && req.body.author===""){
+        Remark.findByIdAndUpdate(id, req.body, (err, e) => {
+            if (err) return next(err);          
+            res.redirect('/events/' + e.eventId);
+    
+        })
+    }else{
+        res.redirect('/events'+id);
+    }
+   
 
 })
 

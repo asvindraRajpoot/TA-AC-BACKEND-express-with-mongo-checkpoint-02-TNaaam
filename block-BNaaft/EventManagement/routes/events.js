@@ -15,6 +15,7 @@ router.get('/', (req, res, next) => {
   Event.find({}, (err, events) => {
     if (err) return next(err);
     // console.log('It is array of events', events);
+    //console.log(events);
 
     res.render('events', { events });
   })
@@ -49,31 +50,10 @@ router.post('/', (req, res, next) => {
   req.body.category = req.body.category.split(' ');
   Event.create(req.body, (err, event) => {
     if (err) return next(err);
-
-    // console.log(event);
-    // res.render('events');
     let categories = req.body.category;
     req.body.eventId = event.id;
-    categories.forEach(c => {
-      //  console.log(c);
-      req.body.category = c;
-
-      Category.findOneAndUpdate({ category: c }, { $push: { eventId: event.id } }, { upsert: true, new: true, setDefaultsOnInsert: true }, (err, updatedCat) => {
-        Event.findByIdAndUpdate(event.id, { $push: { categoryId: updatedCat.id } }, { upsert: true, new: true, setDefaultsOnInsert: true }, (err, updatedEvent) => {
-          console.log('it is updated event', updatedEvent);
-        })
-
-      })
-    })
-    Location.findOneAndUpdate({ location: req.body.location }, { $push: { eventId: event.id } }, { upsert: true, new: true, setDefaultsOnInsert: true }, (err, updatedLocation) => {
-      // if(err)return next(err);
-      // console.log(updatedLocation);
-      // res.redirect('/events')
-      Event.findByIdAndUpdate(event.id, { locationId: updatedLocation.id }, { upsert: true, new: true, setDefaultsOnInsert: true }, (err, updatedEvent) => {
-
-        res.redirect('events/' + event.id);
-      })
-    })
+ 
+     res.redirect('/events');
 
 
 
@@ -103,6 +83,7 @@ router.get('/:id', (req, res, next) => {
 
 //edit a particular event render a edit form
 router.get('/:id/edit', (req, res) => {
+  console.log(req.body);
   let id = req.params.id;
   Event.findById(id, (err, e) => {
     if (err) return next(err);
@@ -115,6 +96,7 @@ router.get('/:id/edit', (req, res) => {
 //capture the updated data
 router.post('/:id', (req, res) => {
   let id = req.params.id;
+  console.log(req.body);
   Event.findByIdAndUpdate(id, req.body, (err, updatedEvent) => {
     if (err) return next(err);
     res.redirect('/events/' + id);
@@ -160,7 +142,7 @@ router.get('/:id/dislikes', (req, res) => {
 
 
 //capture data coming from reamrks
-router.post('/:id/remarks', (req, res) => {
+router.post('/:id/remarks', (req, res,next) => {
   let id = req.params.id;
 
   req.body.eventId = id;
@@ -179,6 +161,14 @@ router.post('/:id/remarks', (req, res) => {
   })
 })
 
+
+
+//category based filter
+router.get('/category',(req,res)=>{
+ 
+  Event.find({})
+
+})
 
 
 module.exports = router;
