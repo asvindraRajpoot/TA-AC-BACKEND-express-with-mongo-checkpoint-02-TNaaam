@@ -8,6 +8,7 @@ var Category = require('../models/category');
 var Location = require('../models/location');
 // var Latest=require('../models/latest');
 // var Oldest=require('../models/oldest');
+var moment=require('moment');
 
 /* GET users listing. */
 router.get('/', (req, res, next) => {
@@ -87,6 +88,8 @@ router.get('/:id/edit', (req, res) => {
   let id = req.params.id;
   Event.findById(id, (err, e) => {
     if (err) return next(err);
+     e.end_date=moment(e.end_date).format("DD/MM/YYYY").toString();
+     e.start_date=moment(e.start_date).format("DD/MM/YYYY").toString()
     res.render('updateEvent', { e });
   })
 
